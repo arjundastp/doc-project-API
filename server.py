@@ -20,8 +20,7 @@ from PIL import Image, ImageDraw, ImageFont  # Added imports for logo creation
 app = Flask(__name__)
 CORS(app)
 
-# Initialize Firebase
-cred = credentials.Certificate("key.json")
+cred = credentials.Certificate(os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
 firebase_admin.initialize_app(cred, {
     'storageBucket': 'national-service-scheme-doc.firebasestorage.app'
 })
